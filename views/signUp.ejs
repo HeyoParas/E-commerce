@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="/css/signUp.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+  <div class="outer-div">
+    <div class="signup-form">
+        <% if (typeof message !== 'undefined') { %>
+            <p style="color: red;text-align: center;"><%= message %></p> <% } %>
+        <h2>Sign Up</h2>
+        <form action="/signUp" method="POST">
+            <label for="userName">UserName</label>
+            <input type="text" name="username" placeholder="First Name" required id="userName">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" placeholder="E-mail" required id="email">
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="Password"  id="password"  
+            required>
+            <input type="checkbox" onclick="func()">Show password 
+            <br><br>
+            
+            <label><input type="radio" name="role" value="user" > User</label>
+            <label><input type="radio" name="role" value="seller" > Seller</label>
+            
+            <br><br>
+            <button type="submit" id="signUp">Sign Up</button>
+        </form>
+        <div class="check">Already sign in?<a href="/login">Log In</a></div>
+    </div>
+</div>
+</body>
+<script>
+   let x= document.getElementById("password");
+   function func(){
+  var passwordField = document.getElementById("password");
+  if (passwordField.type === "password") {
+    passwordField.type = "text";
+  } else {
+    passwordField.type = "password";
+  }
+   }
+</script>
+</html>

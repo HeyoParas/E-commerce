@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="/css/verifyForgotOtp.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="outer-div">
+    <div class="container">
+        <h2>Verify Your Email</h2>
+        <p>Please enter the OTP sent to your Email</p>
+        <p style="color:red"><%= message %></p>
+        <form action="/verifyForgotOtp" method="POST">
+            <input type="number" name="otp" placeholder="Enter OTP" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

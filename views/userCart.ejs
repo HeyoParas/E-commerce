@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userCart</title>
+    <link rel="stylesheet" href="/css/userCart.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <% if (typeof message !== 'undefined' && message !== null && message !== '') { %>
+        <script>
+            alert('Add product first!');
+          </script>
+      <% } %>
+    <div class="outer-container"> 
+        <div class="cart-container">
+            <h1>YOUR CART</h1>
+        </div>
+    </div>
+    <div class="price-summary">
+        <h2>Price Summary</h2>
+        <p>Total Products: <span id="total-products">0</span></p>
+        <p>Total Price: $<span id="total-price">0.00</span></p>
+        <button class="proceed-to-buy">Proceed to Buy</button>
+    </div>
+</body>
+<script src="/Scripts/script2.js"></script>
+</html>

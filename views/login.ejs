@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="outer-div">
+        <div class="login-form">
+            <% if (typeof message !== 'undefined') { %>
+                <center><p style="color: red;"><%= message %><p></center> <% } %>
+            <% if (typeof successMessage !== 'undefined') { %>
+                <center><p style="color: green;"><%= successMessage %><p></center> <% } %>
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <label for="userName">UserName</label>
+                <input type="text" name="username" id="username" placeholder="Username" required>
+                <% if (typeof message1 !== 'undefined') { %>
+                    <p style="color: red; margin: 0px 0px 2px 0px"><%= message1 %></p> <% } %>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password" required>
+                <br>
+                <% if (typeof message2 !== 'undefined') { %>
+                    <p style="color: red; margin:  0px 0px 2px 0px"><%= message2 %></p> <% } %>
+                <input type="checkbox" onclick="func()">Show password 
+                <button type="submit">Login</button>
+            </form>
+            <div class="check">Does not sign up?<a href="/signUp">Sign up</a></div><br>
+            <center><a href="/forgotPassword">Forgot password?</a></center>
+        </div>
+    </div>
+    
+</body>
+<script>
+    function func(){
+   var passwordField = document.getElementById("password");
+   if (passwordField.type === "password") {
+     passwordField.type = "text";
+   } else {
+     passwordField.type = "password";
+   }
+    }
+ </script>
+</html>

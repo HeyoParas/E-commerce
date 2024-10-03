@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userProfile</title>
+    <link rel="stylesheet" href="/css/sellerProfile.css">
+</head>
+<body>
+  <%- include('partials/navbar') %>
+<div class="outer-div">
+  <div class="card">
+    <div class="profile">
+        <img src="adminPfp.jpg" alt="Profile Picture">
+        <h3>Personal Information</h3>
+    </div>
+    <div class="details">
+        <h2>User</h2>
+        <hr>
+        <% if (typeof username !== 'undefined') { %>
+            <p><span>Username:</span> <%= username %></p>
+          <% }%>
+          <% if (typeof email !== 'undefined') { %>
+            <p><span>Email:</span> <%= email %></p>
+          <% }%>
+          <p><span>Role:</span><%= role %></p>
+          <button class="change-password">change password</button>
+          <br><br>
+          <button class="add-product-btn">Add Products</button>
+    </div>
+</div>
+</div>
+</body> 
+<script src="/Scripts/sellerProfileScript.js"></script>
+</html> 

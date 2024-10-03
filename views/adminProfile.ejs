@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminProfile</title>
+    <link rel="stylesheet" href="/css/adminProfile.css" />
+
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <br>
+            <div class="profile-Card">
+<div class="card">
+    <div class="profile">
+        <img src="adminPfp.jpg" alt="Profile Picture">
+        <h3>Personal Information</h3>
+    </div>
+    <div class="details">
+        <h2>Admin</h2>
+        <hr>
+        <% if (typeof username !== 'undefined') { %>
+            <p><span>Username:</span> <%= username %></p>
+          <% } else { %>
+            <p><span>Username:</span> Paras</p>
+          <% } %>
+           
+          <% if (typeof email !== 'undefined') { %>
+            <p><span>Email:</span> <%= email %></p>
+          <% } else { %>
+            <p><span>Email:</span> Parasnegi4143@gmail.com</p>
+          <% } %>          
+          
+            <p><span>Role:</span>Admin</p>
+        <button class="add-product-btn">Add Products</button> <br><br>
+        <button class="change-password">change password</button>
+    </div>
+</div>
+</div>
+<hr>
+
+  
+  <div class="item-container">
+    <% allProduct.forEach(function(element){%>
+      <div class="item">
+      <center><img src="<%= element.src %>" alt="<%= element.productNmae %>" /></center>
+
+      <div class="product-details" >
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" value="<%= element.productNmae %>" required><br>
+        
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="<%= element.description %>" required><br>
+        
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="<%= element.price %>" required><br>
+
+        <label for="stock">stocks:</label>
+        <input type="number" id="stock" name="stock" value="<%= element.stock %>" required><br> 
+
+        <button class="edit-detail-btn" id="<%= element._id %>">Edit Details</button>
+      </div>
+
+
+
+    <button class="remove-product-btn" id="<%= element._id %>">Remove Product</button>
+       
+        </div>
+    <% }) %>
+
+</body>
+<script src="/Scripts/adminProfileScript.js"></script>
+</html>

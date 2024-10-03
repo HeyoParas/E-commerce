@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecommerce</title>
+    <link rel="stylesheet" href="/css/home.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="/">Ecommerce</a>
+      </div>
+      <ul class="nav-links">
+        <li><button class="cart-btn">🛒Cart</button></li>
+        <li><a href="/logout">↪Log-out</a></li>
+        <li><a href="/adminProfile">👤Profile</a></li>
+        <li style="color: white; font-size: 1.5rem">
+          Welcome Admin: <%= username %>
+        </li>
+      </ul>
+    </nav>
+
+        <!------------- dialouge box------------>
+
+        <div class="dialog-box" id="dialog-box">
+          <span class="close-btn" id="close-btn">&times;</span>
+          <div class="product-details">
+            <!-- <img src="">
+            <h2></h2>
+            <p></p>
+            <h4></h4> -->
+          </div>
+        </div>
+        <!------------- dialouge box------------>
+
+    <div class="item-container">
+      <% images.forEach(function(element){%>
+      <div class="item">
+        <img src="<%= element.src %>" alt="" />
+        <div class="funButton">
+          <button class="view-detail-btn" id="<%= element._id %>">
+            View Detail
+          </button>
+          <button class="add-to-cart-btn" id="<%= element._id %>">Add To Cart</button>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <center><button id="load-more-btn">Load More</button></center>
+  </body>
+  <script src="/Scripts/script.js"></script>
+  <% if (typeof message !== 'undefined' && message !== null) { %>
+    <script>
+      alert("Add product first!!");
+    </script>
+  <% } %>
+</html>

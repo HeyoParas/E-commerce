@@ -1,0 +1,74 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f4f8;
+
+    height: 100vh;
+    margin: 0;
+}
+.outer-container{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #121010;
+}
+input[type="text"], input[type="number"], textarea {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.2);
+}
+textarea {
+    resize: vertical;
+}
+input[type="file"] {
+    margin-bottom: 20px;
+}
+button {
+    padding: 14px;
+    font-size: 18px;
+    color: white;
+    background: linear-gradient(45deg, #28a745, #218838);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+button:hover {
+    background: linear-gradient(45deg, #218838, #28a745);
+}
+button:active {
+    transform: scale(0.98);
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}

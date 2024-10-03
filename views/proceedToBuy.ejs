@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceed to Buy</title>
+    <link rel="stylesheet" href="/css/proceedToBuy.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+        <h1>Order Details</h1>
+
+        <div >
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="number" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="address">Address:</label>
+            <div class="address-container">
+                <input type="text" id="address" name="address" required>
+                <button type="button" class="use-location" onclick="getLocation()">Use My Location</button>
+            </div>
+
+            <label for="pincode">Pincode:</label>
+            <input type="number" id="pincode" name="pincode" required>
+
+            <!-- Payment Method Dropdown -->
+            <label for="paymentMethod">Payment Method:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="creditCard">Credit Card</option>
+                <option value="debitCard">Debit Card</option>
+                <option value="netBanking">Net Banking</option>
+                <option value="cashOnDelivery">Cash on Delivery</option>
+                <option value="upi">UPI</option>
+            </select>
+
+            <!-- Order Summary Section -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+
+                <!-- Repeat this block for each product -->
+                <% if (orderItems && orderItems.length > 0) { %>
+                    <% orderItems.forEach(item => { %>
+                        <div class="order-item">
+                            <span><%= item.productName %> (x<%= item.quantity %>)</span>
+                            <span>$<%= item.price %></span>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No items in the order.</p>
+                <% } %>
+
+                <div class="total">
+                    Total Amount: $<%= totalAmount %>
+                </div>
+            </div>
+
+            <!-- Place Order Button -->
+            <button type="button" class="place-order" onclick="showDialog()">Place Order</button>
+        </div>
+    </div>
+
+        <!-- Dialog Box -->
+        <div class="dialog-overlay" id="dialogOverlay"></div>
+        <div class="dialog-box" id="dialogBox">
+            <span class="close-dialog" onclick="closeDialog()">&times;</span>
+            <h2>Order Confirmation</h2>
+            <p>Your order has been placed successfully!</p>
+            <button onclick="redirectHome()">Go to Home</button>
+        </div>
+    
+    </body>
+    <script src="/Scripts/proceedToBuy.js"></script>
+</html>
